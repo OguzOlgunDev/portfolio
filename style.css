@@ -1,0 +1,920 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+RO:wght@100..400&display=swap");
+
+/* CSS Değişkenleri */
+:root {
+  --primary-color: #5a9c8e;
+  --primary-hover: #478577;
+  --secondary-bg: #e1f4ef;
+  --text-dark: #2e2e2e;
+  --text-muted: #555;
+  --background-gradient: linear-gradient(135deg, #dbdbdb, #e8f0e8);
+  --shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.navbar {
+  position: absolute;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 5rem;
+  background-color: #1f2937;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.brand {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+  font-size: 2rem;
+}
+
+.nav-links a:hover {
+  color: #d1d5db;
+  transform: scale(1.1);
+}
+
+/* HAMBURGER MENU */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+.fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(3px);
+  background-color: rgba(31, 41, 55, 0.95);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.fullscreen-menu.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  text-align: center;
+}
+
+.menu-links a {
+  font-size: 4rem;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu-links a:hover {
+  color: #d1d5db;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/*//////////////////////////////////////////////////*/
+.hero-section {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 0.2rem solid black;
+}
+
+.about-me {
+  width: 55%;
+  order: -1;
+  text-align: center;
+  padding: 10rem;
+  background-color: #fff8e7;
+  border-right: 0.2rem solid black;
+}
+.video-container-hero {
+  width: 45%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-container-hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+}
+
+.profile-photo {
+  width: 50%;
+  border: solid 0.5rem black;
+  height: auto;
+  /* object-fit: cover; */
+  border-radius: 50%;
+}
+
+.typewriter {
+  margin-top: 10rem;
+  font-size: 3.5rem;
+  color: #353535;
+  font-family: "Poppins", monospace;
+}
+
+.typewriter #text {
+  font-family: "Poppins", monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid rgb(41, 41, 41);
+  width: fit-content;
+  /*   animation: blink 0.7s infinite; */
+  font-size: 6rem;
+}
+
+.typewriter h1 {
+  font-family: "Poppins", monospace;
+  width: fit-content;
+
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+/* @keyframes blink {
+  0%,
+  100% {
+    border-color: black;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+ */
+
+/*//////////////////////////////////////////////////////// About Section /////////////////////////////////////// */
+
+.about {
+  height: 80vh;
+  display: flex;
+  background-color: #1f2a44;
+  color: #333;
+  font-family: "Arial", sans-serif;
+  padding: 5rem 0;
+  border-bottom: 0.2rem solid black;
+}
+
+/* .about-me {
+  background-color: #f1f1f1; 
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  padding: 50px 0;
+} */
+
+.about-text {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  padding: 10rem;
+}
+
+.skils {
+  height: 100%;
+  width: 40%;
+  position: relative;
+}
+
+.text-container h2 {
+  font-size: 5rem;
+  color: #cacaca;
+  margin-bottom: 20px;
+}
+
+.text-container p {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #cecece;
+}
+
+.circle-container {
+  position: absolute;
+  width: 30rem;
+  height: 30rem;
+  padding-top: 12rem;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit {
+  position: absolute;
+  width: 30rem;
+  height: 30rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 80s linear infinite;
+}
+
+.icon {
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  transform: translate(-50%, -50%);
+}
+
+.icon:nth-child(1) {
+  top: 0;
+  left: 50%;
+  animation: rotate-inverse 80s linear infinite;
+}
+
+.icon:nth-child(2) {
+  top: 25%;
+  left: 100%;
+  animation: rotate-inverse 80s linear infinite;
+}
+
+.icon:nth-child(3) {
+  top: 75%;
+  left: 100%;
+  animation: rotate-inverse 80s linear infinite;
+}
+
+.icon:nth-child(4) {
+  top: 100%;
+  left: 50%;
+  animation: rotate-inverse 80s linear infinite;
+}
+
+.icon:nth-child(5) {
+  top: 75%;
+  left: 0;
+  animation: rotate-inverse 80s linear infinite;
+}
+
+.icon:nth-child(6) {
+  top: 25%;
+  left: 0;
+  animation: rotate-inverse 80s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate-inverse {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////// Projects Section /////////////////////////////////*/
+
+.projects {
+  padding: 10rem;
+  border-bottom: 0.2rem solid black;
+  background: var(--background-gradient);
+  display: flex;
+  gap: 5rem;
+  flex-direction: column;
+}
+
+.project {
+  display: flex;
+  flex-direction: row;
+  padding: 5rem;
+  gap: 10rem;
+  height: 60vh;
+}
+
+.video-container {
+  border-radius: 20px;
+  position: relative;
+  width: 60%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.project-description {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  background-color: #f5f5f5;
+  text-align: justify;
+  padding: 1.5rem 3rem;
+  border-radius: 20px;
+  transition: 0.3s all;
+}
+
+.project-description:hover {
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+}
+
+.project-description h1 {
+  font-size: 4rem;
+  margin-bottom: 5rem;
+  color: #2d3748;
+}
+
+.project-description p {
+  font-size: 2rem;
+  color: #4a5568;
+}
+
+.video-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.video {
+  width: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+}
+
+.thumbnail-container:hover .thumbnail-overlay {
+  opacity: 1;
+}
+
+.thumbnail-container.disable-hover:hover .thumbnail-overlay {
+  opacity: 0 !important;
+}
+
+.video {
+  width: 100%;
+  display: none;
+}
+
+/*///////////////////////////////////////////// CONTACT ME ////////////////*/
+
+/*
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+*/
+
+/*///////////////////////////////////////////////////// Media Queries /////////////////////////////////////////////////////////////*/
+
+@media (max-width: 1599px) and (min-width: 1280px) {
+  .hero-section {
+    height: 80vh;
+  }
+}
+/*
+-
+-
+-
+-
+-
+-
+*/
+/* 1024px - 1279px arası (Laptop boyutu) */
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .hero-section {
+    height: 65vh;
+  }
+}
+/*
+-
+-
+-
+-
+-
+-
+*/
+/* 768px - 1023px arası (Tablet) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .hero-section {
+    height: 80vh;
+  }
+  .about-me {
+    width: 100%;
+    height: 100%;
+  }
+  .video-container-hero {
+    display: none;
+  }
+}
+/*
+-
+-
+-
+-
+-
+-
+*/
+
+/* 600px - 767px arası (Küçük tablet / büyük telefon) */
+@media (max-width: 767px) and (min-width: 600px) {
+  .hero-section {
+    height: 90vh;
+  }
+  .about-me {
+    width: 100%;
+    height: 100%;
+  }
+  .video-container-hero {
+    display: none;
+  }
+
+  .profile-photo {
+    width: 80%;
+    height: auto;
+  }
+}
+/*
+-
+-
+-
+-
+-
+-
+*/
+/* 425px - 599px arası (Telefonlar) */
+@media (max-width: 599px) and (min-width: 425px) {
+  .hero-section {
+    height: 90vh;
+    flex-direction: column;
+  }
+  .about-me {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 1rem;
+  }
+  .video-container-hero {
+    width: 100%;
+  }
+
+  .profile-photo {
+    width: 80%;
+    height: auto;
+  }
+  /*/////////////////////////////// About Section ///////////////////////////////////////*/
+  .about {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .about-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 5rem;
+  }
+
+  .skils {
+    width: 100%;
+  }
+  .circle-container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  /********************** Project */
+  .projects {
+    display: flex;
+    flex-direction: column;
+    padding: 3.5rem 2rem;
+    gap: 5rem;
+  }
+  .project {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    height: 60vh;
+    gap: 3rem;
+  }
+
+  .video-container {
+    width: 100%;
+    height: 100%;
+  }
+  .project-description {
+    width: 100%;
+    padding-top: 2rem;
+  }
+  .project-description h1 {
+    font-size: 3rem;
+  }
+
+  .thumbnail-overlay {
+    display: none;
+  }
+}
+
+/*
+-
+-
+-
+-
+-
+-
+*/
+
+/* 390px - 424px arası (Küçük telefonlar) */
+@media (max-width: 424px) and (min-width: 390px) {
+  .hero-section {
+    height: 90vh;
+    flex-direction: column;
+  }
+  .about-me {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 2rem;
+  }
+  .video-container-hero {
+    width: 100%;
+  }
+
+  .profile-photo {
+    width: 80%;
+    height: auto;
+  }
+
+  /*/////////////////////////////// About Section ///////////////////////////////////////*/
+  .about {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5rem;
+    padding-bottom: 0;
+  }
+
+  .skils {
+    width: 100%;
+  }
+  .circle-container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /*////////////////////////////// Project Section /////////////////////////////////////*/
+
+  .projects {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    gap: 5rem;
+  }
+  .project {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    height: 40vh;
+    gap: 4rem;
+  }
+
+  .video-container {
+    width: 100%;
+    height: 100%;
+  }
+  .project-description {
+    width: 100%;
+    padding-top: 2rem;
+  }
+
+  .thumbnail-overlay {
+    display: none;
+  }
+}
+
+/*
+-
+-
+-
+-
+-
+-
+*/
+
+/* 320px - 390px arası (Eski küçük cihazlar) //*/
+@media (max-width: 390px) {
+  .hero-section {
+    height: 100vh;
+    flex-direction: column;
+  }
+  .about-me {
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+  }
+
+  .typewriter #text {
+    margin: 0 auto;
+    font-size: 4rem;
+  }
+
+  .typewriter h1 {
+    margin: 0 auto;
+    font-size: 5rem;
+  }
+
+  .video-container-hero {
+    width: 100%;
+  }
+
+  .profile-photo {
+    width: 50%;
+    height: auto;
+    border-radius: 0%;
+  }
+  /*/////////////////////////////// About Section ///////////////////////////////////////*/
+  .about {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 5rem;
+  }
+
+  .skils {
+    width: 100%;
+  }
+  .circle-container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  /********************** Project */
+  .projects {
+    display: flex;
+    flex-direction: column;
+    padding: 3.5rem 2rem;
+    gap: 5rem;
+  }
+  .project {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    height: 60vh;
+    gap: 3rem;
+  }
+
+  .video-container {
+    width: 100%;
+    height: 100%;
+  }
+  .project-description {
+    width: 100%;
+    padding-top: 2rem;
+  }
+  .project-description h1 {
+    font-size: 3rem;
+  }
+
+  .thumbnail-overlay {
+    display: none;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+/*//////////////////////////////////// HTML FONT SİZE
+@media (max-width: 1919px) and (min-width: 1600px) {
+  html {
+    font-size: 59%;
+  }
+}
+
+/* 1440px - 1599px arası */
+@media (max-width: 1599px) and (min-width: 1280px) {
+  html {
+    font-size: 56%;
+  }
+}
+
+/* 1024px - 1279px arası (Laptop boyutu) */
+@media (max-width: 1279px) and (min-width: 1024px) {
+  html {
+    font-size: 53%;
+  }
+}
+
+/* 768px - 1023px arası (Tablet) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/* 600px - 767px arası (Küçük tablet / büyük telefon) */
+@media (max-width: 767px) and (min-width: 600px) {
+  html {
+    font-size: 48%;
+  }
+}
+
+/* 425px - 599px arası (Telefonlar) */
+@media (max-width: 599px) and (min-width: 425px) {
+  html {
+    font-size: 40%;
+  }
+}
+
+/* 375px - 424px arası (Küçük telefonlar) */
+@media (max-width: 424px) and (min-width: 375px) {
+  html {
+    font-size: 35%;
+  }
+}
+
+/* 320px - 374px arası (Eski küçük cihazlar) */
+@media (max-width: 374px) {
+  html {
+    font-size: 35%;
+  }
+}
+
+/*Navbar /****** */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fdfdfd;
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    padding: 1rem 2rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Hamburger'den X'e dönüşüm */
+  .menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+}

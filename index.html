@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oğuz'un Web Sitesi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="brand">MyPortfolio</div>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <div class="fullscreen-menu" id="fullscreen-menu">
+      <div class="menu-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <section class="hero-section">
+      <div class="video-container-hero">
+        <video
+          autoplay
+          muted
+          class="video-container-hero-video"
+          src="assets/images/video3.mp4"
+        ></video>
+        <div class="gradient-overlay"></div>
+      </div>
+      <div class="about-me">
+        <img class="profile-photo" src="assets/images/cv-prof.jpg" alt="" />
+        <div class="typewriter">
+          <h1>Oğuz Olgun</h1>
+          <h1 id="text">Web Developer</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-text">
+        <div class="text-container">
+          <h2>About Me</h2>
+          <p>
+            Hi! I'm Oğuz, a passionate web developer with a strong background in
+            full-stack development. I love creating interactive and
+            user-friendly websites, and I'm constantly improving my skills in
+            JavaScript, Node.js, and React. I'm also interested in backend
+            technologies and database management.
+          </p>
+          <p>
+            I'm continuously working on improving my skills, especially in
+            frontend technologies like React, and my goal is to work on
+            meaningful projects that impact the world. Let's connect!
+          </p>
+        </div>
+      </div>
+      <div class="skils">
+        <div class="circle-container">
+          <div class="orbit">
+            <img
+              src="assets/images/html-icon.png"
+              class="icon"
+              style="--i: 0"
+            />
+            <img src="assets/images/css-icon.png" class="icon" style="--i: 1" />
+            <img
+              src="assets/images/js-icon.png"
+              class="icon"
+              id="make-small"
+              style="--i: 2"
+            />
+            <img
+              src="assets/images/react-icon.png"
+              class="icon"
+              id="make-small"
+              style="--i: 3"
+            />
+            <img
+              src="assets/images/node-js.png"
+              class="icon"
+              id="make-small"
+              style="--i: 4"
+            />
+            <img
+              src="assets/images/sass-icon.png"
+              class="icon"
+              style="--i: 5"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="projects">
+      <div class="project">
+        <div class="project-description">
+          <h1>Organic Food Project</h1>
+          <p>
+            Organik gıda temalı bu projede, yalnızca HTML, CSS ve Sass
+            kullanarak modern ve kullanıcı dostu bir web sitesinin frontend
+            kısmını geliştirdim. Sass’ta 7/1 mimarisini benimsedim; proje
+            kapsamında vendors ve themes klasörlerine ihtiyaç duymadığım için bu
+            bölümleri dışarıda bıraktım. CSS framework olarak yalnızca
+            Bootstrap’in grid sisteminden faydalandım; kendi grid yapımı yazmak
+            yerine bu yapı üzerinden ilerledim.
+          </p>
+        </div>
+        <div class="video-container">
+          <div class="thumbnail-container">
+            <img
+              class="thumbnail"
+              src="assets/images/organic2.jpg"
+              alt="Thumbnail"
+            />
+            <div class="thumbnail-overlay"><h1>Click To Play</h1></div>
+          </div>
+          <video class="video" muted>
+            <source src="assets/images/vid-new.mp4" type="video/mp4" />
+            Tarayıcınız video etiketini desteklemiyor.
+          </video>
+        </div>
+      </div>
+      <div class="project">
+        <div class="project-description">
+          <h1>Task Manager</h1>
+          <p>
+            Bu projede, kullanıcıların görevlerini kolayca yönetebileceği
+            dinamik bir Task Manager uygulaması geliştirdim. Backend tarafında
+            Node.js kullanarak RESTful API’ler oluşturdum ve veritabanı
+            işlemleri için MongoDB tercih ettim. Kullanıcılar görev ekleyip
+            silebilir, mevcut görevleri güncelleyebilir. Bu projede arama kısmı
+            eklemedim databese filitreleme işlemleri bulunmuyor.
+          </p>
+        </div>
+        <div class="video-container">
+          <div class="thumbnail-container">
+            <img
+              class="thumbnail"
+              src="assets/images/task-manager.jpg"
+              alt="Thumbnail"
+            />
+            <div class="thumbnail-overlay"><h1>Click To Play</h1></div>
+          </div>
+          <video class="video" muted>
+            <source src="assets/images/project2.mp4" type="video/mp4" />
+            Tarayıcınız video etiketini desteklemiyor.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
